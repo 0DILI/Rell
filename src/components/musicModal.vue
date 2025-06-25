@@ -6,26 +6,22 @@
   >
     <!-- Popup content -->
     <div class="absolute top-0 left-0 h-full w-64 p-4 z-50">
-      <transition-group name="fade-left" tag="ul">
-        <ul>
-          <transition-group name="fade-left" tag="div">
-            <li
-              v-for="(song, index) in songList"
-              :key="index"
-              class="font-bold text-[22px] text-white pt-3"
-            >
-              <a
-                :href="song.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hover:underline"
-              >
-                {{ song.title }}
-              </a>
-            </li>
-          </transition-group>
-        </ul>
-      </transition-group>
+      <ul>
+        <li
+          v-for="(song, index) in songList"
+          :key="song.title + index"
+          class="font-bold text-[22px] text-white pt-3 slide-in"
+        >
+          <a
+            :href="song.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:underline"
+          >
+            {{ song.title }}
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -53,20 +49,18 @@ const closeModal = () => {
   -webkit-backdrop-filter: blur(12px);
 }
 
-.fade-left-enter-active {
-  transition: all 0.5s ease;
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-.fade-left-leave-active {
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateX(-10px);
-}
-.fade-left-enter-from {
-  opacity: 0;
-  transform: translateX(20px);
-}
-.fade-left-enter-to {
-  opacity: 1;
-  transform: translateX(0);
+
+.slide-in {
+  animation: slideIn 0.4s ease forwards;
 }
 </style>
