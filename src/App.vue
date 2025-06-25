@@ -16,7 +16,7 @@ import { RouterLink, RouterView } from "vue-router";
 import { onMounted, ref, computed } from "vue";
 import { RouterLink, RouterView } from "vue-router";
 import { useRoute } from "vue-router";
-import money from "@/assets/MoneyWalk.mp3";
+import money from "@/assets/moneywalk.mp3";
 import Nav from "./components/nav.vue";
 import musicModal from "./components/musicModal.vue";
 
