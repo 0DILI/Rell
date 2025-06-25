@@ -8,7 +8,7 @@
         <router-link to="/about">About</router-link>
       </li>
       <li class="hover:text-[#000] cursor-pointer">
-        <router-link to="/services">Servicess</router-link>
+        <router-link to="/services">Services</router-link>
       </li>
 
       <li class="hover:text-[#000] cursor-pointer">
