@@ -1,7 +1,9 @@
 <template>
-  <div class="app">
-    <Nav style="color: black"></Nav>
-    <audio src="./assets/moneywalk.mp3" autoplay loop ref="bgMusic"></audio>
+  <div>
+    <Nav :class="navColor"></Nav>
+    <audio ref="bgMusic" :src="money" autoplay loop></audio>
+
+    <musicModal></musicModal>
     <RouterView />
   </div>
 </template>
@@ -11,29 +13,36 @@ import { RouterLink, RouterView } from "vue-router";
 </script> -->
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
 import { RouterLink, RouterView } from "vue-router";
+import { useRoute } from "vue-router";
+import money from "@/assets/MoneyWalk.mp3";
 import Nav from "./components/nav.vue";
+import musicModal from "./components/musicModal.vue";
 
 const bgMusic = ref(null);
 
+const route = useRoute();
+
+const navColor = computed(() => {
+  return route.name === "home" ? "white" : "black";
+});
+
 onMounted(() => {
-  if (bgMusic.value) {
-    // Try autoplay
-    bgMusic.value.play().catch(() => {
-      // If autoplay fails, play on first user interaction
-      const resume = () => {
-        bgMusic.value.play();
-        document.removeEventListener("click", resume);
-      };
-      document.addEventListener("click", resume);
-    });
-  }
+  const tryPlay = () => {
+    bgMusic.value?.play();
+    window.removeEventListener("click", tryPlay);
+  };
+  window.addEventListener("click", tryPlay);
 });
 </script>
 
 <style scoped>
-.app {
-  background-color: red;
+.white {
+  color: white;
+}
+
+.black {
+  color: rgba(0, 0, 0, 0.4);
 }
 </style>

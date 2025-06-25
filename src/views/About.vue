@@ -1,15 +1,4 @@
 <template>
-  <!-- Mobile Menu -->
-  <div
-    id="mobile-menu"
-    class="absolute top-20 right-4 bg-black bg-opacity-80 text-white p-4 rounded-md space-y-2 text-[18px] font-bold hidden md:hidden z-20"
-  >
-    <a href="#" class="block hover:text-[#fbddfe]">About</a>
-    <a href="#" class="block hover:text-[#fbddfe]">Services</a>
-    <a href="#" class="block hover:text-[#fbddfe]">Portfolio</a>
-    <a href="#" class="block hover:text-[#fbddfe]">Music</a>
-  </div>
-
   <div
     class="flex flex-col items-center space-y-3 mt-20 sm:px-6 px-3"
     data-aos="fade-up"
@@ -53,19 +42,19 @@
       data-aos-delay="600"
       data-aos-duration="1000"
     >
-      <a href="#">
+      <a href="rellcut@yahoo.com">
         <img src="./../assets/email.svg" />
       </a>
 
-      <a href="#">
+      <a href="https://www.tiktok.com/@rell.cut">
         <img src="./../assets/tiktok.svg" />
       </a>
 
-      <a href="#">
+      <a href=" https://www.instagram.com/rell.cut/">
         <img src="./../assets/insta.svg" />
       </a>
 
-      <a href="#">
+      <a href="https://www.youtube.com/@keepinitrell">
         <img src="./../assets/youtube.svg" />
       </a>
     </div>
@@ -114,7 +103,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-const hello = "hello";
-</script>
