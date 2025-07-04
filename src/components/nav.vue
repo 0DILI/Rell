@@ -28,7 +28,11 @@
     </div>
 
     <!-- Hamburger for mobile -->
-    <button id="menu-toggle" class="md:hidden focus:outline-none">
+    <button
+      @click="toggleMenu"
+      ref="toggleBtn"
+      class="md:hidden focus:outline-none"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="w-8 h-8"
@@ -46,31 +50,58 @@
     </button>
 
     <div
-      id="mobile-menu"
-      class="absolute top-20 right-4 bg-black bg-opacity-80 text-white p-4 rounded-md space-y-2 text-[18px] font-bold hidden md:hidden z-20"
+      v-if="menuOpen"
+      ref="mobileMenu"
+      class="absolute flex flex-col top-10 left-4 bg-[#F0F0F5] bg-opacity-80 text-black p-4 rounded-md space-y-2 text-[18px] z-20"
     >
-      <a href="#" class="block hover:text-[#fbddfe]">About</a>
-      <a href="#" class="block hover:text-[#fbddfe]">Services</a>
-      <a href="#" class="block hover:text-[#fbddfe]">Portfolio</a>
-      <a href="#" class="block hover:text-[#fbddfe]">Music</a>
+      <router-link to="/about">About</router-link>
+      <router-link to="/services">Services</router-link>
+      <router-link to="/portfolio">Portfolio</router-link>
+      <p @click="openModal">Music</p>
     </div>
   </nav>
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
+const menuOpen = ref(false);
+const toggleBtn = ref(null);
+const mobileMenu = ref(null);
 
 const Color = computed(() => {
   return route.name === "home" ? "white" : "black";
 });
 
+const toggleMenu = () => {
+  menuOpen.value = !menuOpen.value;
+};
+
+const handleClickOutside = (event) => {
+  if (
+    toggleBtn.value &&
+    mobileMenu.value &&
+    !toggleBtn.value.contains(event.target) &&
+    !mobileMenu.value.contains(event.target)
+  ) {
+    menuOpen.value = false;
+  }
+};
+
 const openModal = () => {
   const id = document.getElementById("music");
   id.classList.remove("hidden");
 };
+
+onMounted(() => {
+  document.addEventListener("click", handleClickOutside);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener("click", handleClickOutside);
+});
 </script>
 
 <style scoped>
