@@ -8,47 +8,38 @@
       >
         <!-- Card -->
         <div>
-          <img src="../assets/demo.png" alt="" />
+          <video controls>
+            <source src="./../assets/vid1.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         <div>
-          <img src="./../assets/demo.png" alt="" />
+          <video controls>
+            <source src="./../assets/vid2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         <div>
-          <img src="./../assets/demo.png" alt="" />
+          <video controls>
+            <source src="./../assets/vid3.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         <div>
-          <img src="./../assets/demo.png" alt="" />
+          <video controls>
+            <source src="./../assets/vid4.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         <div>
-          <img src="./../assets/demo.png" alt="" />
-        </div>
-
-        <div>
-          <img src="./../assets/demo.png" alt="" />
-        </div>
-
-        <div>
-          <img src="./../assets/demo.png" alt="" />
-        </div>
-
-        <div>
-          <img src="./../assets/demo.png" alt="" />
-        </div>
-
-        <div>
-          <img src="./../assets/demo.png" alt="" />
-        </div>
-
-        <div>
-          <img src="./../assets/demo.png" alt="" />
-        </div>
-
-        <div>
-          <img src="./../assets/demo.png" alt="" />
+          <video controls>
+            <source src="./../assets/vid5.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </div>
